@@ -8,10 +8,8 @@ import ExpensesFilter from "../ExpensesFilter/ExpensesFilter";
 const ExpenseList = (props) => {
   const [filteredYear, setFilteredYear] = useState("2020");
 
-
   const selectDateHandler = (selectedDate) => {
     setFilteredYear(selectedDate);
-    
   };
 
   return (
@@ -21,14 +19,19 @@ const ExpenseList = (props) => {
         onSelectDate={selectDateHandler}
       />
 
-      {props.expenses.map(expense => (
-        <ExpenseItem
-          title={expense.title}
-          amount={expense.amount}
-          date={expense.date}
-        />
-      ))};
-
+      {props.expenses
+        .filter(
+          (expense) => expense.date.getFullYear().toString() === filteredYear
+        )
+        .map((expense) => (
+          <ExpenseItem
+            key={expense.id}
+            title={expense.title}
+            amount={expense.amount}
+            date={expense.date}
+          />
+        ))
+        }
     </Card>
   );
 };

@@ -4,7 +4,7 @@ import ExpenseList from "./components/Expenses/ExpenseList";
 import NewExpense from "./components/NewExpense/NewExpense";
 
 
-const initialExpenses = [
+const dummyExpenses = [
   {
     id: "e1",
     title: "Car Insurance",
@@ -17,12 +17,12 @@ const initialExpenses = [
 
 const App = () => {
 
-  const [expenses, setExpenses] = useState(initialExpenses);
+  const [expenses, setExpenses] = useState(dummyExpenses);
 
 
   const addExpenseHandler = (expense) => {
-    setExpenses(initialExpenses => {
-      return [expense, ...initialExpenses];
+    setExpenses(expenses => {
+      return [expense, ...expenses];
     });
   };
 
