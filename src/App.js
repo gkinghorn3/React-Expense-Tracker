@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import ExpenseList from "./components/Expenses/ExpenseList";
+import ExpenseList from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpense/NewExpense";
 
 
